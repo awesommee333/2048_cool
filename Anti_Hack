@@ -1,0 +1,29 @@
+boolean anti_hack() {
+  int numbers_second_dimension=0;
+  String[] check=split(highscorestr[0], ' ');
+  pass=int(check[0]);
+  high=0;
+  int number=1;
+  check=split(highscorestr[1], ' ');
+  for (int i=1;int(check[0])!=0;i++) {
+    check=split(highscorestr[i], ' ');
+    if (int(check[0])!=0) {
+      if (int(check[0])+int(check[1])-1==15 && int(check[1])<11) {
+        high*=10;
+        high+=int(check[1])-1;
+        checking=true;
+      }
+      if (int(check[0])+int(check[1])-1!=15 || int(check[1])>10) {
+        return false;
+      }
+      number++;
+    }
+  }
+  check=split(highscorestr[number],  ' ');
+  endpass=int(check[1]);
+  if (high%pass_antihack==pass && high%endpass_antihack==endpass) {
+    highscore=high;
+    return true;
+  }
+  return false;
+}
